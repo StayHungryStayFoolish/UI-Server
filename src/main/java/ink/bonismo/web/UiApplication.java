@@ -1,4 +1,4 @@
-package ink.bonismo.web.rest;
+package ink.bonismo.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

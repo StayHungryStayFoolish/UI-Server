@@ -5,4 +5,5 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/2019-03-19-10-17_dictionary_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/2019-03-19-20-20_article_initial_schema.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
