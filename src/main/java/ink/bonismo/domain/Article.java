@@ -31,12 +31,12 @@ public class Article extends AbstractAuditingEntity implements Serializable {
 
     @NotNull
     @Size(max = 32)
-    @Column(name = "unique_id",length = 32,nullable = false)
+    @Column(name = "unique_id", length = 32, nullable = false)
     private String uniqueId;
 
     @NotNull
     @Size(max = 800)
-    @Column(name = "title",length = 800,nullable = false)
+    @Column(name = "title", length = 800, nullable = false)
     private String title;
 
     @NotNull
@@ -46,11 +46,11 @@ public class Article extends AbstractAuditingEntity implements Serializable {
 
     @NotNull
     @Size(max = 5)
-    @Column(name = "language",length = 5,nullable = false)
+    @Column(name = "language", length = 5, nullable = false)
     private String language;
 
     @Size(max = 800)
-    @Column(name = "icon",length = 800)
+    @Column(name = "icon", length = 800)
     private String icon;
 
     @Size(max = 800)
@@ -58,7 +58,7 @@ public class Article extends AbstractAuditingEntity implements Serializable {
     private String thumbnail;
 
     @Size(max = 800)
-    @Column(name = "tag",length = 800)
+    @Column(name = "tag", length = 800)
     private String tag;
 
     @NotNull

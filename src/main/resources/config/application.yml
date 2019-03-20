@@ -23,9 +23,7 @@ spring:
         password: admin
         hikari:
             driver-class-name: com.mysql.cj.jdbc.Driver
-    # Configuration code invalid , define liquibase use yml
     liquibase:
-        change-log: classpath:config/liquibase/master.xml
         contexts: dev,prod,test
 server:
     port: 9090

@@ -29,9 +29,11 @@ public class LiquibaseConfiguration {
     }
 
     @Bean
-    public SpringLiquibase liquibase(DataSource dataSource) {
+    public SpringLiquibase liquibase(DataSource dataSource) throws Exception {
         SpringLiquibase liquibase = new SpringLiquibase();
         liquibase.setDataSource(dataSource);
+        liquibase.setChangeLog("classpath:config/liquibase/master.xml");
+        liquibase.setContexts(env.getProperty("spring.liquibase.contexts"));
         if (env.acceptsProfiles(SPRING_PROFILE_NO_LIQUIBASE)) {
             liquibase.setShouldRun(false);
         } else {
