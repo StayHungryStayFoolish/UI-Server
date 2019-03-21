@@ -2,10 +2,9 @@ package ink.bonismo.domain;
 
 import ink.bonismo.domain.enumeration.UIStatus;
 import lombok.Data;
-import org.hibernate.validator.constraints.Range;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -16,6 +15,7 @@ import java.io.Serializable;
  * @Description:
  * @Version: 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "dictionary")

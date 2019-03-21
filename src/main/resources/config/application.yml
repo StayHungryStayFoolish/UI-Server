@@ -28,3 +28,12 @@ spring:
 server:
     port: 9090
 
+# grpc
+grpc:
+    server:
+        address: 0.0.0.0
+        port: 10081
+
+logging:
+    level:
+        ink.bonismo: debug

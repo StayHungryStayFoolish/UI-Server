@@ -1,7 +1,7 @@
 package ink.bonismo.domain;
 
-import ink.bonismo.domain.enumeration.UIStatus;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @Description:
  * @Version: 1.0
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "article")
