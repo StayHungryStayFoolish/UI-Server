@@ -1,5 +1,18 @@
 # READ ME
 
+## Add Liquibase
+
+1. Add Dependencies
+
+        dependencies {
+            liquibaseRuntime "mysql:mysql-connector-java"
+            liquibaseRuntime "org.liquibase:liquibase-core"
+            liquibaseRuntime "org.liquibase.ext:liquibase-hibernate5:${liquibase_hibernate5_version}"
+            liquibaseRuntime sourceSets.main.compileClasspath
+        }
+
+
+
 ## Add MapStruct
 
 1. Add Dependencies
@@ -27,19 +40,19 @@
     2.2 Extends Common Interface
     
         @Mapper(componentModel = "spring",uses = {})
-        public interface ClassMapper extends EntityMapper<ClassDTO, ClassEntity> {
+        public interface ExampleMapper extends EntityMapper<ExampleDTO, ExampleEntity> {
         
-            default ClassEntity fromId(Long id) {
+            default ExampleEntity fromId(Long id) {
                 if (id == null) {
                     return null;
                 }
-                ClassEntity class = new ClassEntity();
-                class.setId(id);
-                return class;
+                ExampleEntity example = new ExampleEntity();
+                example.setId(id);
+                return example;
             }
         }
         
-    2.3 Inject ClassMapper
+    2.3 Inject ExampleMapper can use `toDto` and so on. 
     
 ## Add Lombok
 
