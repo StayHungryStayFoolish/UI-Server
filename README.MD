@@ -142,8 +142,14 @@
                     responseObserver.onCompleted();
                }        
         }      
- 
-5. Add annotation `@ProtoClass` and `@ProtoFiled` on class and filed.
+
+## Add Protobuf-Converter 
+
+1. Add dependencies
+
+        
+
+2. Add annotation `@ProtoClass` and `@ProtoFiled` on class and filed.
     
         
         @ProtoClass(ProtobufUser.class)
@@ -166,7 +172,97 @@
         // Code for backward conversion:
         User userDomain = Converter.create().toDomain(User.class, userProto);
 
+[GitHub Protobuf-Converter](https://github.com/BAData/protobuf-converter)
 
 * Also, you can user other plugins. [GitHub Proto-Stuff](https://github.com/protostuff/protostuff)
+
+### 数据
+
+10个字段，包含 string、long、int、boolean、float、double
+
+#### 90000条数据
+
+|  统计次数| Protobuf-Converter | Code | 
+| ---: | ----: | ----: |
+| 1 | 1秒 324 微秒 | ccccc |
+| 2    | 1秒 362 微秒      | c     |
+| 3    | 1秒 347 微秒      | c     |
+| 4    | 1秒 455 微秒      | c     |
+| 5    | 1秒 315 微秒      | c     |
+| 6    | 1秒 347 微秒      | c     |
+| 7    | 1秒 398 微秒      | c     |
+| 8    | 1秒 314 微秒      | c     |
+| 9    | 1秒 312 微秒      | c     |
+| 10   | 1秒 308 微秒      | c     |
+| 平均  | 1秒 315 微秒      | received message larger than max     |
+
+* 使用普通方法，4万条数据可以传输，9万条数据(8922432 vs. 4194304)
+* 使用 Protobuf-Converter 数据到达 10W条，数据传输超出限制。(4361266 vs. 4194304)    
+
+#### 20000 条数据
+
+|  统计次数| Protobuf-Converter | Code |
+| ---: | ----: | ----: | 
+| 1    | 0秒 301 微秒      | 0秒 9 微秒 |
+| 2    | 0秒 313 微秒      | 0秒 9 微秒     |
+| 3    | 0秒 335 微秒      | 0秒 7 微秒     |
+| 4    | 0秒 302 微秒      | 0秒 5 微秒     |
+| 5    | 0秒 299 微秒      | 0秒 3 微秒     |
+| 6    | 0秒 307 微秒      | 0秒 2 微秒     |
+| 7    | 0秒 298 微秒      | 0秒 4 微秒     |
+| 8    | 0秒 322 微秒      | 0秒 4 微秒     |
+| 9    | 0秒 300 微秒      | 0秒 3 微秒     |
+| 10   | 0秒 323 微秒      | 0秒 9 微秒     |
+| 平均  | 0秒 310微秒      | 0秒 5.5 微秒     | 
+
+#### 2000 条数据
+
+|  统计次数| Protobuf-Converter | Code |
+| ---: | ----: | ----: | 
+| 1    | 0秒 55 微秒      | 0秒 1 微秒 |
+| 2    | 0秒 40 微秒      |0秒 2 微秒  |
+| 3    | 0秒 48 微秒      |0秒 2 微秒  |
+| 4    | 0秒 52 微秒      |0秒 2 微秒  |
+| 5    | 0秒 36 微秒      |0秒 1 微秒  |
+| 6    | 0秒 37 微秒      |0秒 1 微秒  |
+| 7    | 0秒 34 微秒      |0秒 2 微秒  |
+| 8    | 0秒 38 微秒      |0秒 1 微秒  |
+| 9    | 0秒 47 微秒      |0秒 2 微秒  |
+| 10   | 0秒 33 微秒      |0秒 1 微秒  |
+| 平均  | 0秒 42 微秒      | 0秒 1.5 微秒|
+
+#### 200 条数据
+
+|  统计次数| Protobuf-Converter | Code |
+| ---: | ----: | ----: | 
+| 1    | 0秒 4 微秒     | 0秒 1 微秒 |
+| 2    | 0秒 3 微秒     | 0秒 1 微秒 |
+| 3    | 0秒 5 微秒     | 0秒 0 微秒 |
+| 4    | 0秒 5 微秒     | 0秒 1 微秒 |
+| 5    | 0秒 4 微秒     | 0秒 1 微秒 |
+| 6    | 0秒 3 微秒     | 0秒 1 微秒 |
+| 7    | 0秒 5 微秒     | 0秒 0 微秒 |
+| 8    | 0秒 4 微秒     | 0秒 1 微秒 |
+| 9    | 0秒 4 微秒     | 0秒 0 微秒 |
+| 10   | 0秒 4 微秒     | 0秒 1 微秒 |
+| 平均  | 0秒 4.1 微秒   | 0秒 0.7 微秒 |
+
+#### 20 条数据
+
+|  统计次数| Protobuf-Converter | Code |
+| ---: | ----: | ----: | 
+| 1    | 0秒 2 微秒      | 0秒 1 微秒 |
+| 2    | 0秒 2 微秒      | 0秒 1 微秒 |
+| 3    | 0秒 2 微秒      | 0秒 0 微秒 |
+| 4    | 0秒 2 微秒      | 0秒 1 微秒 |
+| 5    | 0秒 2 微秒      | 0秒 1 微秒 |
+| 6    | 0秒 2 微秒      | 0秒 1 微秒 |
+| 7    | 0秒 1 微秒      | 0秒 0 微秒 |
+| 8    | 0秒 1 微秒      | 0秒 1 微秒 |
+| 9    | 0秒 2 微秒      | 0秒 0 微秒 |
+| 10   | 0秒 1 微秒      | 0秒 1 微秒 |
+| 平均  | 0秒 1.7 微秒    | 0秒 0.7 微秒 |
+
+
 
 ## Add Liquibase

@@ -1,10 +1,13 @@
 package ink.bonismo.web.rest;
 
 import ink.bonismo.domain.Dictionary;
+import ink.bonismo.domain.User;
 import ink.bonismo.domain.enumeration.UIStatus;
 import ink.bonismo.service.DictionaryService;
 import ink.bonismo.service.dto.DictionaryDTO;
 import ink.bonismo.service.mapper.DictionaryMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,6 +28,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api")
 public class ApiResource {
+
+    private Logger logger = LoggerFactory.getLogger(ApiResource.class);
 
     private final Environment environment;
 
@@ -77,8 +83,16 @@ public class ApiResource {
     }
 
     public static void main(String[] args) {
-        Dictionary dictionary = new Dictionary();
-        dictionary.setStatus(UIStatus.PUBLISHED);
-        System.out.println(dictionary.getStatus().name().length());
+        long t1 = 1553243668457L;
+        long t2 = 1553243668479L;
+
+        long t3 = 1553243669903L;
+        long t4 = 1553243669928L;
+
+
+        Calendar c=Calendar.getInstance();
+        c.setTimeInMillis(t2-t1);
+
+        System.out.println("耗时: " + c.get(Calendar.MINUTE) + "分 " + c.get(Calendar.SECOND) + "秒 " + c.get(Calendar.MILLISECOND) + " 微秒");
     }
 }

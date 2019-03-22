@@ -29,10 +29,22 @@ public class User implements Serializable {
 //    @NotNull
     private String email;
 
-//     The user name
+    //     The user name
     @ProtoField
 //    @NotNull
     private String name;
+
+    private Boolean marry;
+
+    private Integer age;
+
+    private String birth;
+
+    private double weight;
+
+    private double height;
+    private float finance;
+    private double price;
 
     public Long getId() {
         return id;
@@ -56,5 +68,77 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Boolean getMarry() {
+        return marry;
+    }
+
+    public void setMarry(Boolean marry) {
+        this.marry = marry;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public float getFinance() {
+        return finance;
+    }
+
+    public void setFinance(float finance) {
+        this.finance = finance;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", marry=" + marry +
+                ", age=" + age +
+                ", birth='" + birth + '\'' +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", finance=" + finance +
+                ", price=" + price +
+                '}';
     }
 }

@@ -6,6 +6,8 @@ option java_package = "io.bonismo";
 
 service UserProvider {
     rpc getByUserId(UserIdRequest) returns (UserVoReplay) {};
+    rpc getList(UserIdRequest) returns (UserPageResponse) {};
+    rpc createUsers(UserPageResponse) returns (UserIdRequest) {};
 }
 
 // request
@@ -18,9 +20,18 @@ message UserVoReplay {
     uint64 id = 1;
     string name = 2;
     string email = 3;
+    bool marry = 4;
+    int32 age = 5;
+    string birth = 6;
+    double height = 7;
+    double weight = 8;
+    float finance = 9;
+    double price = 10;
 }
 
-
+message UserPageResponse {
+   repeated UserVoReplay replay =1;
+}
 
 
 
